@@ -9,6 +9,7 @@ pipeline {
         stage("Test API") {
             steps {
                 sh "newman run collections/test.postman_collection.json"
+                sh 'npm install -g newman-reporter-htmlextra'
             }
         }
         stage("Test with HTML Extra Reporter") {
