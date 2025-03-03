@@ -19,9 +19,18 @@ pipeline {
         }
     }
         post {
-        always {
-            archiveArtifacts artifacts: 'newman-report.html'
-        }
+    always {
+        archiveArtifacts artifacts: 'newman-report.html'
+        publishHTML([
+            allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: '.',
+            reportFiles: 'newman-report.html',
+            reportName: 'Newman HTML Report'
+        ])
     }
+}
+
 
 }
