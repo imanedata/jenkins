@@ -18,9 +18,5 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            archiveArtifacts artifacts: 'newman-report.html'
-        }
-    }
+
 }
