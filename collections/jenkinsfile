@@ -1,0 +1,16 @@
+pipeline{
+    agent{
+        docker{
+            image"postman/newman"
+            args"--entrypointe=''"
+        }
+    }
+    stages{
+        stage("test API"){
+            steps{
+                sh" newman run collections/test.postman_collection.json"
+            }
+
+        }
+    }
+}

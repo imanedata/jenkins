@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "92864749-c905-4bcd-8c3b-a8aa32ef1b12",
+		"name": "test skip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42584524",
+		"_collection_link": "https://www.postman.com/planetary-zodiac-326886/workspace/application-prof/collection/42584524-92864749-c905-4bcd-8c3b-a8aa32ef1b12?action=share&source=collection_link&creator=42584524"
+	},
+	"item": [
+		{
+			"name": "test de skip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"skip\", function() {\r",
+							"    pm.environment.set(\"flag\", false);\r",
+							"    pm.expect(true).to.be.true;\r",
+							"    pm.expect(true).to.be.true;\r",
+							"    pm.environment.set(\"flag\", true);\r",
+							"});\r",
+							"\r",
+							"(pm.environment.get('flag') ? pm.test : pm.test.skip)(\"Test conditionnel\", function() {\r",
+							"    pm.environment.set(\"flag\", false);\r",
+							"    pm.expect(true).to.be.true;\r",
+							"    pm.expect(true).to.be.true;\r",
+							"    pm.environment.set(\"flag\", true);\r",
+							"}); \r",
+							"\r",
+							" "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
