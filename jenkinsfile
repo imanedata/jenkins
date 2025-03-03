@@ -1,15 +1,20 @@
-pipeline{
-    agent{
+pipeline {
+    agent {
         docker {
             image "postman/newman"
-            args "--entrypoint=''"
+            args "--entrypoint=\"\""
+        }
     }
-    stages{
-        stage("test API"){
-            steps{
-                sh" newman run collections/test.postman_collection.json"
+    stages {
+        stage("Test API") {
+            steps {
+                sh "newman run collections/test.postman_collection.json"
             }
-
+        }
+        stage("Test with HTML Extra Reporter") {
+            steps {
+                sh "newman run collections/test.postman_collection.json -r htmlextra"
+            }
         }
     }
 }
